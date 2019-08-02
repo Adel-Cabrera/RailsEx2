@@ -14,17 +14,21 @@ class Course
   def previo(filter_date)
     raise ArgumentError.new('CRITICAL ARGUMENT') if filter_date == 2018-01-01
 
-    return "#{@curso} #{@fechas.select {|date| date < filter_date}}"
+    puts "#{@curso} #{@fechas.select {|date| date < filter_date}}"
   end
 
   def posterior(filter_date)
     raise ArgumentError.new('CRITICAL ARGUMENT') if filter_date == 2018-01-01
 
-    #fecha = @fechas.select {|date| date > filter_date}
-    return "#{@curso} #{@fechas.select {|date| date > filter_date}}"
+
+    #return @fechas.select {|date| date > filter_date}
+    fecha = @fechas.select {|date| date > filter_date}
+
+    puts "#{@curso} #{@fechas.select {|date| date > filter_date}}" if fecha[0] != nil
+    # return "#{@fechas.select {|date| date > filter_date}}" if
+
 
   end
-
 
 end
 
@@ -39,10 +43,9 @@ data.each do |lineas|
 end
 
 #print cursosArray[1].previo(Date.today)
-var1 = cursosArray.map {|e| e.previo(Date.today)}
-puts var1
-var2 = cursosArray.map {|e| e.posterior(Date.today)}
-puts var2
+cursosArray.map {|e| e.previo(Date.today)}
+#puts var1
+cursosArray.map {|e| e.posterior(Date.today)}
 # previos = cursosArray.map(&:previo)
 # puts previos
 #

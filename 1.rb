@@ -7,20 +7,17 @@ class Table
     @money = money.map(&:to_i)
   end
 
-  # def leer_archivo()
-  #
-  # end
-
   def mas_alto()
     #return @money.select { |mesa| mesa} # Debe dar Mesa 4, día 2, valor 93
     max = @money.max
     nombre = @name
-    return "#{nombre} #{max} #{@money.index(max)+1}"
+    return "#{nombre}, recaudación máxima de #{max}, día #{@money.index(max)+1}."
 
   end
 
   def promedio()
-   return @money.inject(&:+) / @money.size.to_f
+   # return @money.inject(&:+) / @money.size.to_f
+   return @money.sum / @money.size.to_f
   end
 
 end

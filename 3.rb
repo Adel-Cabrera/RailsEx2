@@ -1,13 +1,14 @@
 class Roulette
   #attr_accessor :r, :random
 
-  def initialize()
+  def initialize(choice)
+    @choice = choice
     @r = (1..10).to_a #range to array
 
   end
 
-  def play(choice)
-    @choice = choice
+  def play()
+
     @random = @r.sample
     @win = @choice == @random
 
@@ -29,6 +30,10 @@ class Roulette
 
 end
 
-var = Roulette.new
-var.play(10)
+# var = Roulette.new()
+# var.play(10)
+# var.save()
+
+var = Roulette.new(10)
+var.play()
 var.save()
